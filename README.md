@@ -1,13 +1,14 @@
 # Napi Thread-Safe Callback
 
-[![npm](https://img.shields.io/npm/v/napi-thread-safe-callback.svg)](https://www.npmjs.com/package/napi-thread-safe-callback)
-[![Build Status](https://travis-ci.org/mika-fischer/napi-thread-safe-callback.svg?branch=master)](https://travis-ci.org/mika-fischer/napi-thread-safe-callback)
-[![Build status](https://ci.appveyor.com/api/projects/status/475okhfy85tkeah7?svg=true)](https://ci.appveyor.com/project/mika-fischer/napi-thread-safe-callback)
-[![dependencies Status](https://david-dm.org/mika-fischer/napi-thread-safe-callback/status.svg?style=flat)](https://david-dm.org/mika-fischer/napi-thread-safe-callback)
-[![devDependencies Status](https://david-dm.org/mika-fischer/napi-thread-safe-callback/dev-status.svg?style=flat)](https://david-dm.org/mika-fischer/napi-thread-safe-callback?type=dev)
+[![npm](https://img.shields.io/npm/v/napi-thread-safe-callback-cancellable.svg)](https://www.npmjs.com/package/napi-thread-safe-callback-cancellable)
 
 This package contains a header-only C++ helper class to facilitate
 calling back into JavaScript from threads other than the Node.JS main thread.
+
+This is a fork of [napi-thread-safe-callback](https://github.com/mika-fischer/napi-thread-safe-callback)
+which adds the possibility of cancelling the call from the argument function by throwing `ThreadSafeCallback::CancelException`.
+
+Note a new project should use `Napi::TypedThreadSafeFunction` instead of this package.
 
 # Examples
 
@@ -90,7 +91,7 @@ void example_async_return_value(const CallbackInfo& info)
                     break;
             }
         }
-        catch (...) 
+        catch (...)
         {
             // Ignore errors
         }
@@ -103,17 +104,17 @@ void example_async_return_value(const CallbackInfo& info)
   1. Add a dependency on this package to `package.json`:
 ```json
   "dependencies": {
-    "napi-thread-safe-callback": "0.0.1",
+    "napi-thread-safe-callback-cancellable": "^0.0.7",
   }
 ```
 
   2. Reference this package's include directory in `binding.gyp`:
 ```gyp
-  'include_dirs': ["<!@(node -p \"require('napi-thread-safe-callback').include\")"],
+  'include_dirs': ["<!@(node -p \"require('napi-thread-safe-callback-cancellable').include\")"],
 ```
   3. Include the header in your code:
 ```C++
-#include "napi-thread-safe-callback.hpp"
+#include "napi-thread-safe-callback-cancellable.hpp"
 ```
 
 ### Exception handling

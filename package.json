@@ -1,6 +1,6 @@
 {
-  "name": "napi-thread-safe-callback",
-  "version": "0.0.6",
+  "name": "napi-thread-safe-callback-cancellable",
+  "version": "0.0.7",
   "description": "C++ utility class to perform callbacks into JavaScript from any thread",
   "main": "index.js",
   "scripts": {
@@ -16,11 +16,24 @@
     "callback",
     "thread"
   ],
-  "author": "Mika Fischer <mika.fischer@zoopnet.de> (https://github.com/mika-fischer)",
+  "author": {
+      "name": "Mika Fischer",
+      "url": "https://github.com/mika-fischer"
+  },
+  "contributors": [
+    {
+      "name": "Mika Fischer",
+      "url": "https://github.com/mika-fischer"
+    },
+    {
+      "name": "Paul-Louis Ageneau",
+      "url": "https://github.com/paullouisageneau"
+    }
+  ],
   "license": "ISC",
-  "homepage": "https://github.com/mika-fischer/napi-thread-safe-callback",
-  "bugs": "https://github.com/mika-fischer/napi-thread-safe-callback/issues",
-  "repository": "github:mika-fischer/napi-thread-safe-callback",
+  "homepage": "https://github.com/paullouisageneau/napi-thread-safe-callback-cancellable",
+  "bugs": "https://github.com/paullouisageneau/napi-thread-safe-callback-cancellable/issues",
+  "repository": "github:paullouisageneau/napi-thread-safe-callback-cancellable",
   "devDependencies": {
     "mocha": "^5.0.5",
     "node-addon-api": "^1.2.0"
